@@ -3,7 +3,7 @@ package data;
 public class Space {
 	private int[][] field;
 	private boolean gameOver = false;
-	private boolean win = false;
+	private int win = -1;
 	Space() {
 		field = new int[3][3];
 		for (int i = 0; i < 3; i++) {
@@ -12,7 +12,7 @@ public class Space {
 			}
 		}
 	}
-	public boolean getWin() {
+	public int getWin() {
 		return win;
 	}
 	public boolean getOver() {
@@ -39,16 +39,16 @@ public class Space {
 	private boolean switchCase (int count, int player, int first, int second, boolean canWin) {
 		switch(count) {
 		case(1000):
-			win = true;
+			win = 10;
 			return true;
 		case(125):
-			win = true;
+			win = 5;
 			return true;
 		case(25):
 			switch(player) {
 			case (5):
 				field[first][second] = player;
-				win = true;
+				win = 5;
 				return true;
 			case (10):
 				if (!canWin) {
@@ -62,7 +62,7 @@ public class Space {
 			switch(player) {
 			case(10):
 				field[first][second] = player;
-				win = true;
+				win = 10;
 				return true;
 			case(5):
 				if (!canWin) {

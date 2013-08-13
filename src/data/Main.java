@@ -29,18 +29,12 @@ public class Main {
 				do {
 					System.out.println();
 					if ((count % 2) == 0){
-						if (space.getWin()) {
-							System.out.println("Player win!");
-							break;
-						}
+						
 						space.getStep(enemy);
 						space.print();
 						
 					} else {
-						if (space.getWin()) {
-							System.out.println("Enemy win!");
-							break;
-						}
+						
 						space.getStep(player);
 						space.print();
 						
@@ -53,7 +47,11 @@ public class Main {
 				do {
 					System.out.println();
 					if ((count % 2) == 0){
-						if (space.getWin()) {
+						switch (space.getWin()) {
+						case (5):
+							System.out.println("Player win!");
+							break;
+						case (10):
 							System.out.println("Enemy win!");
 							break;
 						}
@@ -62,10 +60,15 @@ public class Main {
 						
 					} else {
 						
-						if (space.getWin()) {
+						
+						if (space.getWin() == 5) {
 							System.out.println("Player win!");
 							break;
+						} else if (space.getWin() == 10) {
+							System.out.println("Enemy win!");
+							break;
 						}
+						
 						int j = scan.nextInt() - 1;
 						int i = scan.nextInt() - 1;
 						
